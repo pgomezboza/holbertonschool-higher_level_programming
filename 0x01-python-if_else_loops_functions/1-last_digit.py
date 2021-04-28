@@ -17,5 +17,4 @@ elif ln is 0:
  msg = zero
 elif ln < 6 and not 0:
  msg = less
-
 print("Last digit of", number, "is", ln, msg)
