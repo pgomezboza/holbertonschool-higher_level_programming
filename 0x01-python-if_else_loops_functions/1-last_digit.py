@@ -7,14 +7,14 @@ less = "and is less than 6 and not 0"
 zero = "and is 0"
 
 if number > 0:
- ln = number % 10
+    ln = number % 10
 else:
- ln = number % (-10)
+    ln = number % (-10)
 
 if ln > 5:
- msg = greater
+    msg = greater
 elif ln is 0:
- msg = zero
+    msg = zero
 elif ln < 6 and not 0:
- msg = less
+    msg = less
 print("Last digit of", number, "is", ln, msg)
