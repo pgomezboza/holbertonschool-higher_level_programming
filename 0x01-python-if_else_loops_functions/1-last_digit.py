@@ -5,7 +5,7 @@ great = "and is greater than 5"
 less = "and is less than 6 and not 0"
 zero = "and is 0"
 
-if n > 0:
+if num > 0:
     ln = num % 10
 else:
     ln = num % (-10)
