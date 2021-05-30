@@ -1,11 +1,9 @@
-    Test import method:
+Import method:
     >>> add_integer = __import__('0-add_integer').add_integer
 
-    Test use of default b=98 value:
     >>> print(add_integer(1))
     99
 
-    Test signed and unsigned int and float:
     >>> print(add_integer(1, 1))
     2
 
@@ -16,7 +14,6 @@
     5
 
 
-    Test other regular operations:
     >>> print(add_integer(2, 3))
     5
 
@@ -26,7 +23,6 @@
     >>> print(add_integer(-6, 8))
     2
 
-    Test args:
     >>> print(add_integer(None))
     Traceback (most recent call last):
     ...
@@ -37,13 +33,11 @@
     ...
     TypeError: a must be an integer
 
-    Test more arg:
     >>> print(add_integer(0, 1, 2))
     Traceback (most recent call last):
     ...
     TypeError: add_integer() takes from 1 to 2 positional arguments but 3 were given
 
-    Test other data types:
     >>> print(add_integer("hello"))
     Traceback (most recent call last):
     ...
@@ -53,3 +47,15 @@
     Traceback (most recent call last):
     ...
     TypeError: b must be an integer
+
+    >>> add_integer()
+    Traceback (most recent call last):
+    TypeError: add_integer() missing 1 required positional argument: 'a'
+
+    >>> add_integer(1000e1000)
+    Traceback (most recent call last):
+    OverflowError: cannot convert float infinity to integer
+
+    >>> add_integer(float('nan'))
+    Traceback (most recent call last):
+    ValueError: cannot convert float NaN to integer
