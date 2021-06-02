@@ -1,0 +1,13 @@
+Test import class:
+	>>> MyList = __import__('1-my_list').MyList
+
+Test cases:
+    >>> my_list = MyList()
+    >>> my_list.append(3)
+    >>> my_list.append(20)
+    >>> my_list.append(12)
+    >>> my_list.append(6)
+    >>> print(my_list)
+    [3, 20, 12, 6]
+    >>> my_list.print_sorted()
+    [3, 6, 12, 20]
