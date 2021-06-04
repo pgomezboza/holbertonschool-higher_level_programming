@@ -1,4 +1,4 @@
-iCheck import
+Check import
     >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
 
 Other Checks
