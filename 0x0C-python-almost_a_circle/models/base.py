@@ -38,8 +38,11 @@ class Base:
         Writes the JSON string representation of list_objs to a file.
         """
         list_dicts = []
+
+        if list_objs is not None:
+            for n in list_objs:
+                list_dicts.append(cls.to_dictionary(n))
+
         file_name = "{}.json".format(cls.__name__)
         with open(file_name, 'w') as file:
-            for n in list_objs:
-                list_dicts.append(n.to_dictionary())
             file.write(cls.to_json_string(list_dicts))
