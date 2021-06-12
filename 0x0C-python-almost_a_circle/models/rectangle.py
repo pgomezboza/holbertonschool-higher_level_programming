@@ -132,9 +132,10 @@ class Rectangle(Base):
         return ('[Rectangle] ({:d}) {:d}/{:d} - {:d}/{:d}'.format(self.id,
                 self.__x, self.__y, self.__width, self.__height))
 
-    def update(self, *args, **kwargs):
+    def update(self, *args):
         """
-        Updates attribute values
+        Updates attributeis values
+        args:id, width, height,x and y.
         """
 
         if args:
@@ -151,14 +152,3 @@ class Rectangle(Base):
                 self.x = args[3]
             if new_arg > 4:
                 self.y = args[4]
-        else:
-            if 'id' in kwargs:
-                self.id = kwargs.get('id')
-            if 'width' in kwargs:
-                self.width = kwargs.get('width')
-            if 'height' in kwargs:
-                self.height = kwargs.get('height')
-            if 'x' in kwargs:
-                self.x = kwargs.get('x')
-            if 'y' in kwargs:
-                self.y = kwargs.get('y')
