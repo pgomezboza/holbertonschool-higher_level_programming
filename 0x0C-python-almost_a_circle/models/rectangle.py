@@ -132,7 +132,7 @@ class Rectangle(Base):
         return ('[Rectangle] ({:d}) {:d}/{:d} - {:d}/{:d}'.format(self.id,
                 self.__x, self.__y, self.__width, self.__height))
 
-    def update(self, *args):
+    def update(self, *args, **kwargs):
         """
         Updates attributeis values
         args:id, width, height,x and y.
