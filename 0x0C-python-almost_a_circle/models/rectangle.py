@@ -11,7 +11,6 @@ class Rectangle(Base):
     """
     Rectangle object from Base.
     """
-
     def __init__(self, width, height, x=0, y=0, id=None):
         """
         Initializes a Rectangle instance.
@@ -29,7 +28,6 @@ class Rectangle(Base):
         """
         Gets width of rectangle instance.
         """
-
         return self.__width
 
     @width.setter
@@ -37,7 +35,6 @@ class Rectangle(Base):
         """
         Sets width of rectangle.
         """
-
         if type(value) is not int:
             raise TypeError("width must be an integer")
         elif value <= 0:
@@ -49,7 +46,6 @@ class Rectangle(Base):
         """
         Gets height of rectangle instance.
         """
-
         return self.__height
 
     @height.setter
@@ -57,7 +53,6 @@ class Rectangle(Base):
         """
         Sets height of rectangle instance.
         """
-
         if type(value) is not int:
             raise TypeError("height must be an integer")
         elif value <= 0:
@@ -76,7 +71,6 @@ class Rectangle(Base):
         """
         Sets "x" value.
         """
-
         if type(value) is not int:
             raise TypeError("x must be an integer")
         elif value < 0:
@@ -88,7 +82,6 @@ class Rectangle(Base):
         """
         Gets "y" value.
         """
-
         return self.__y
 
     @y.setter
@@ -107,14 +100,12 @@ class Rectangle(Base):
         """
         Calculate area of rectangle
         """
-
         return self.__width * self.__height
 
     def display(self):
         """
         Prints the rectangle using '#'
         """
-
         for y in range(0, self.__y):
                 print()
         for m in range(0, self.__height):
@@ -128,7 +119,6 @@ class Rectangle(Base):
         """
         Create string representation.
         """
-
         return ('[Rectangle] ({:d}) {:d}/{:d} - {:d}/{:d}'.format(self.id,
                 self.__x, self.__y, self.__width, self.__height))
 
@@ -137,7 +127,6 @@ class Rectangle(Base):
         Updates attributeis values
         args:id, width, height,x and y.
         """
-
         if args:
             new_arg = len(args)
 
@@ -165,5 +154,8 @@ class Rectangle(Base):
                 self.y = kwargs.get('y')
 
     def to_dictionary(self):
+        """
+        Return dictionary representation.
+        """
         return {'id': self.id, 'width': self.width, 'height': self.height,
                 'x': self.x, 'y': self.y}
