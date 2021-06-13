@@ -4,6 +4,7 @@ Module: base
 """
 import json
 import os
+import csv
 
 
 class Base:
@@ -85,3 +86,37 @@ class Base:
                 for n in list_dicts:
                     lst.append(cls.create(**n))
         return lst
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """
+        Serializes csv
+        """
+        file_name = cls.__name__ + ".csv"
+        with open(file_name, mode='w', encoding='utf-8', newline='') as file:
+            writer = csv.writer(file)
+            if cls.__name__ is "Rectangle":
+                for n in list_objs:
+                    writer.writerow([n.id, n.width, n.height, n.x, n.y])
+            elif cls.__name__ is "Square":
+                for n in list_objs:
+                    writer.writerow([n.id, n.size, n.x, n.y])
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """
+        Deserializes csv
+        """
+        file_name = cls.__name__ + '.csv'
+        l = []
+        try:
+            with open(file_name, mode='r') as file:
+                reader = csv.reader(file)
+                for n in reader:
+                    for key, value in n.items():
+                        n[key] = int(value)
+                    l.append(n)
+            return [cls.create(**dictionary) for dictionary in l]
+        except:
+            pass
+        return l
