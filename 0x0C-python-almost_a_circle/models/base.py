@@ -52,7 +52,7 @@ class Base:
         """
         Returns the list of the JSON string representation json_string.
         """
-        if json_string is not None or len(json_string) != 0:
+        if json_string is not None and len(json_string) != '':
             return json.loads(json_string)
         else:
             return []
