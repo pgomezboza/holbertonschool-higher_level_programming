@@ -9,13 +9,20 @@ from models.rectangle import Rectangle
 
 class Square(Rectangle):
     """
-    Square class inherited from Rectangle
+    Square class inherited from Rectangle.
     """
     def __init__(self, size, x=0, y=0, id=None):
-            super().__init__(size, size, x, y, id)
+        """
+        Initialize square instance.
+        args: size, x, y, id.
+        """
+        super().__init__(size, size, x, y, id)
 
     def __str__(self):
-        return ('[Square] ({:d}) {:d}/{:d} - {:d}'.format(self.id, self.x,
+        """
+        Return string representation of a Square instance.
+        """
+        return ('[Square] ({}) {}/{} - {}'.format(self.id, self.x,
                 self.y, self.width))
 
     @property
