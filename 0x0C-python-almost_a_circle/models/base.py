@@ -93,14 +93,15 @@ class Base:
         Serializes csv
         """
         file_name = cls.__name__ + ".csv"
-        with open(file_name, mode='w', encoding='utf-8', newline='') as file:
-            writer = csv.writer(file)
-            if cls.__name__ is "Rectangle":
-                for n in list_objs:
-                    writer.writerow([n.id, n.width, n.height, n.x, n.y])
-            elif cls.__name__ is "Square":
-                for n in list_objs:
-                    writer.writerow([n.id, n.size, n.x, n.y])
+        with open(file_name, mode='w', newline='') as file:
+            if list_objs is not None:
+                wr = csv.writer(file)
+                if cls.__name__ is "Rectangle":
+                    for o in list_objs:
+                        wr.writerow([o.id, o.width, o.height, o.x, o.y])
+                elif cls.__name__ is "Square":
+                    for o in list_objs:
+                        wr.writerow([o.id, o.size, o.x, o.y])
 
     @classmethod
     def load_from_file_csv(cls):
@@ -108,15 +109,24 @@ class Base:
         Deserializes csv
         """
         file_name = cls.__name__ + '.csv'
-        l = []
+        obj = []
         try:
-            with open(file_name, mode='r') as file:
-                reader = csv.reader(file)
-                for n in reader:
-                    for key, value in n.items():
-                        n[key] = int(value)
-                    l.append(n)
-            return [cls.create(**dictionary) for dictionary in l]
+            with open(file_name, mode='r', newline='') as file:
+                rd = csv.reader(file)
+                for arg in r:
+                    if cls.__name__ is "Rectangle":
+                        d = {"id": int(arg[0]),
+                             "width": int(arg[1]),
+                             "height": int(arg[2]),
+                             "x": int(arg[3]),
+                             "y": int(arg[4])}
+                    if cls.__name__ is "Square":
+                        d = {"id": int(arg[0]),
+                             "size": int(arg[1]),
+                             "x": int(arg[2]),
+                             "y": int(arg[3])}
+                    o = cls.create(**d)
+                    obj.append(o)
         except:
             pass
-        return l
+        return obj
