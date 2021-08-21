@@ -12,7 +12,7 @@ if __name__ == "__main__":
     req = request.urlopen(url)
     with req as response:
         """
-        hdr = response.info()['X-Request-Id']
+        out = response.info()['X-Request-Id']
         print(hdr)
         """
         out = response.getheader('X-Request-Id')
