@@ -6,7 +6,7 @@ const url = process.argv[2];
 
 request(url, (e, r) => {
   if (e) {
-    console.log('error:' + e);
+    console.log(e);
   } else {
     console.log('code:' + r.statusCode);
   }
