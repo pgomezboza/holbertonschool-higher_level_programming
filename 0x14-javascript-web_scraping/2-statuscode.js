@@ -8,6 +8,6 @@ request(url, (e, r) => {
   if (e) {
     console.log(e);
   } else {
-    console.log('code:' + r.statusCode);
+    console.log('code: ' + r.statusCode);
   }
 });
